@@ -45,6 +45,7 @@ public class FindPatientRecordFragment extends ACBaseFragment<FindPatientRecordC
 	private TextView noPatientFound, numberOfFetchedPatients, searchForPatient, patientSearchTitle, noPatientFoundTitle;
 	private LinearLayoutManager layoutManager;
 	private ProgressBar findPatientProgressBar;
+	private RecyclerView findPatientRecyclerViewAdapter;
 	private LinearLayout findPatientLayout, noPatientsFoundLayout, foundPatientsLayout, patientListLayout, progessBarLayout;
 	private OpenMRS openMRS = OpenMRS.getInstance();
 	private AuthorizationManager authorizationManager;
@@ -61,12 +62,12 @@ public class FindPatientRecordFragment extends ACBaseFragment<FindPatientRecordC
 			if (!mPresenter.isLoading()) {
 				if (!findPatientRecyclerView.canScrollVertically(1)) {
 					// load next page
-					mPresenter.loadResults(true);
+					//mPresenter.loadResults(selectedPatientList.getUuid(), true);
 				}
 
 				if (!findPatientRecyclerView.canScrollVertically(-1) && dy < 0) {
 					// load previous page
-					mPresenter.loadResults(false);
+					//mPresenter.loadResults(selectedPatientList.getUuid(), false);
 				}
 			}
 		}
@@ -106,14 +107,14 @@ public class FindPatientRecordFragment extends ACBaseFragment<FindPatientRecordC
 		setNumberOfPatientsView(0);
 		//Adding the Recycler view
 		layoutManager = new LinearLayoutManager(this.getActivity());
-		findPatientRecyclerView = (RecyclerView)mRootView.findViewById(R.id.findPatientModelRecyclerView);
-		findPatientRecyclerView.setLayoutManager(layoutManager);
+		findPatientRecyclerViewAdapter = (RecyclerView)mRootView.findViewById(R.id.findPatientModelRecyclerView);
+		findPatientRecyclerViewAdapter.setLayoutManager(layoutManager);
 
 		// Font config
 		FontsUtil.setFont((ViewGroup)this.getActivity().findViewById(android.R.id.content));
 		authorizationManager = new AuthorizationManager();
 		if (authorizationManager.isUserLoggedIn()) {
-			//mPresenter.getLastViewed(mPresenter.getPage());
+			mPresenter.getLastViewed();
 		}
 		return mRootView;
 	}
@@ -138,8 +139,8 @@ public class FindPatientRecordFragment extends ACBaseFragment<FindPatientRecordC
 	@Override
 	public void fetchPatients(List<Patient> patients) {
 		FindPatientRecyclerViewAdapter adapter = new FindPatientRecyclerViewAdapter(this.getActivity(), patients, this);
-		findPatientRecyclerView.setAdapter(adapter);
-		findPatientRecyclerView.addOnScrollListener(recyclerViewOnScrollListener);
+		findPatientRecyclerViewAdapter.setAdapter(adapter);
+		findPatientRecyclerViewAdapter.addOnScrollListener(recyclerViewOnScrollListener);
 	}
 
 	@Override

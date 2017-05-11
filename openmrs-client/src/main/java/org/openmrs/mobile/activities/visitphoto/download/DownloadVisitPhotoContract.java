@@ -1,30 +1,24 @@
 package org.openmrs.mobile.activities.visitphoto.download;
 
-import android.graphics.Bitmap;
-
 import org.openmrs.mobile.activities.BasePresenterContract;
 import org.openmrs.mobile.activities.BaseView;
-import org.openmrs.mobile.data.DataService;
+import org.openmrs.mobile.models.VisitPhoto;
 
 import java.util.List;
 
 public class DownloadVisitPhotoContract {
 
-	interface View extends BaseView<DownloadVisitPhotoContract.Presenter> {
+    interface View extends BaseView<DownloadVisitPhotoContract.Presenter> {
 
-		void updateVisitImageUrls(List<String> urls);
+        void updateVisitImages(List<VisitPhoto> visitPhotos);
+    }
 
-		void downloadImage(String obsUuid, DataService.GetSingleCallback<Bitmap> callback);
-	}
+    interface Presenter extends BasePresenterContract {
 
-	interface Presenter extends BasePresenterContract {
+        void downloadImages();
 
-		void downloadImage(String obsUuid, DataService.GetSingleCallback<Bitmap> callback);
+        boolean isLoading();
 
-		void loadVisitDocumentObservations();
-
-		boolean isLoading();
-
-		void setLoading(boolean loading);
-	}
+        void setLoading(boolean loading);
+    }
 }

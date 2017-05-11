@@ -51,7 +51,7 @@ public interface FindPatientRecordContract {
 
 		void findPatient(String name);
 
-		void getLastViewed(int page);
+		void getLastViewed();
 
 		boolean isLoading();
 
@@ -59,7 +59,7 @@ public interface FindPatientRecordContract {
 
 		void setTotalNumberResults(int totalNumberResults);
 
-		void loadResults(boolean loadNextResults);
+		void loadResults(String patientListUuid, boolean loadNextResults);
 
 		void refresh();
 

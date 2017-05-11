@@ -15,7 +15,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+
 public class Concept extends BaseOpenmrsObject {
+
 
 	@SerializedName("datatype")
 	@Expose
@@ -28,10 +30,9 @@ public class Concept extends BaseOpenmrsObject {
 	@SerializedName("conceptClass")
 	@Expose
 	private ConceptClass conceptClass;
-	@SerializedName("answers")
-	@Expose
-	private List<ConceptAnswer> answers;
-
+    @SerializedName("answers")
+    @Expose
+    private List<ConceptAnswer> answers;
 	public Datatype getDatatype() {
 		return datatype;
 	}

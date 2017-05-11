@@ -2,6 +2,7 @@ package org.openmrs.mobile.models;
 
 import com.google.gson.annotations.Expose;
 
+import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Transient;
 
 import java.io.Serializable;

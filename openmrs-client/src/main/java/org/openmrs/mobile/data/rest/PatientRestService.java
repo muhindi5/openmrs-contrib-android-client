@@ -39,8 +39,8 @@ public interface PatientRestService {
 			@Query("v") String representation,
 			@Query("q") String name,
 			@Query("identifier") String identifier,
-			@Query("startIndex") int startIndex,
-			@Query("limit") int limit);
+			@Query("limit") int limit,
+			@Query("startIndex") int startIndex);
 
 	@GET(RestConstants.REST_PATH)
 	Call<Results<Patient>> getLastViewed(@Path(value = "restPath", encoded = true) String restPath,
@@ -50,7 +50,7 @@ public interface PatientRestService {
 	@GET(RestConstants.REST_PATH)
 	Call<Results<Patient>> getLastViewed(@Path(value = "restPath", encoded = true) String restPath,
 			@Query("lastviewed") String lastviewed,
-			@Query("v") String representation,/**/
-			@Query("startIndex") int startIndex,
-			@Query("limit") int limit);
+			@Query("v") String representation,
+			@Query("limit") int limit,
+			@Query("startIndex") int startIndex);
 }

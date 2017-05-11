@@ -63,7 +63,7 @@ public class VisitTasksPresenter extends BasePresenter implements VisitTasksCont
 			DataService.GetMultipleCallback<VisitPredefinedTask> getMultipleCallback = new DataService
 					.GetMultipleCallback<VisitPredefinedTask>() {
 				@Override
-				public void onCompleted(List<VisitPredefinedTask> visitPredefinedTasks, int length) {
+				public void onCompleted(List<VisitPredefinedTask> visitPredefinedTasks,int length) {
 					if (visitPredefinedTasks.isEmpty()) {
 						visitTasksView.setPredefinedTasks(visitPredefinedTasks);
 						/*visitTasksView.showToast(ApplicationConstants.toastMessages.predefinedTaskInfo, ToastUtil
@@ -95,7 +95,7 @@ public class VisitTasksPresenter extends BasePresenter implements VisitTasksCont
 			DataService.GetMultipleCallback<VisitTask> getMultipleCallback = new DataService
 					.GetMultipleCallback<VisitTask>() {
 				@Override
-				public void onCompleted(List<VisitTask> visitTasksList, int length) {
+				public void onCompleted(List<VisitTask> visitTasksList,int length) {
 					if (visitTasksList.isEmpty()) {
 						visitTasksView.setVisitTasks(visitTasksList);
 						/*visitTasksView.showToast(ApplicationConstants.toastMessages.predefinedTaskInfo, ToastUtil
@@ -118,8 +118,8 @@ public class VisitTasksPresenter extends BasePresenter implements VisitTasksCont
 									.fetchErrorMessage, ToastUtil.ToastType.ERROR);
 				}
 			};
-			visitTasksDataService.getAll(ApplicationConstants.EMPTY_STRING, visitTasksView.getPatientUuid(),
-					visitTasksView.getVisitUuid(), pagingInfo, getMultipleCallback);
+			visitTasksDataService.getAll(ApplicationConstants.EMPTY_STRING, ApplicationConstants.PATIENT_UUID,
+					ApplicationConstants.VISIT_UUID, pagingInfo, getMultipleCallback);
 		} else {
 			// get the users from the local storage.
 		}
@@ -193,10 +193,10 @@ public class VisitTasksPresenter extends BasePresenter implements VisitTasksCont
 	@Override
 	public void createVisitTasksObject(String visitTask) {
 		Patient patient = new Patient();
-		patient.setUuid(visitTasksView.getPatientUuid());
+		patient.setUuid(ApplicationConstants.PATIENT_UUID);
 
 		Visit visit = new Visit();
-		visit.setUuid(visitTasksView.getVisitUuid());
+		visit.setUuid(ApplicationConstants.VISIT_UUID);
 
 		VisitTask visitTaskEntity = new VisitTask();
 
@@ -229,7 +229,7 @@ public class VisitTasksPresenter extends BasePresenter implements VisitTasksCont
 									.fetchErrorMessage, ToastUtil.ToastType.ERROR);
 				}
 			};
-			visitDataService.getByUUID(visitTasksView.getVisitUuid(), getSingleCallback);
+			visitDataService.getByUUID(ApplicationConstants.VISIT_UUID, getSingleCallback);
 		} else {
 			// get the users from the local storage.
 		}

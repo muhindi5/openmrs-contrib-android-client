@@ -24,9 +24,11 @@ import org.openmrs.mobile.application.OpenMRS;
 import org.openmrs.mobile.application.OpenMRSLogger;
 import org.openmrs.mobile.dao.LocationDAO;
 import org.openmrs.mobile.databases.OpenMRSSQLiteOpenHelper;
+import org.openmrs.mobile.listeners.retrofit.GetVisitTypeCallbackListener;
 import org.openmrs.mobile.models.Location;
 import org.openmrs.mobile.models.Results;
 import org.openmrs.mobile.models.Session;
+import org.openmrs.mobile.models.VisitType;
 import org.openmrs.mobile.net.AuthorizationManager;
 import org.openmrs.mobile.utilities.ApplicationConstants;
 import org.openmrs.mobile.utilities.NetworkUtils;
@@ -132,6 +134,23 @@ public class LoginPresenter extends BasePresenter implements LoginContract.Prese
 								mOpenMRS.setSessionToken(session.getSessionId());
 							}
 
+							visitApi.getVisitType(new GetVisitTypeCallbackListener() {
+								@Override
+								public void onGetVisitTypeResponse(VisitType visitType) {
+									OpenMRS.getInstance().setVisitTypeUUID(visitType.getUuid());
+								}
+
+								@Override
+								public void onResponse() {
+									// This method is intentionally empty
+								}
+
+								@Override
+								public void onErrorResponse(String errorMessage) {
+									loginView.showToast("Failed to fetch visit type",
+											ToastUtil.ToastType.ERROR);
+								}
+							});
 							setLogin(true, url);
 							userService.updateUserInformation(username);
 

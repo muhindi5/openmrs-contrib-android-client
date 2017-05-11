@@ -75,6 +75,12 @@ class FindPatientRecyclerViewAdapter extends RecyclerView.Adapter<FindPatientRec
 		}
 
 		try {
+			holder.dateAdded.setText(patient.getDateCreated().toString());
+		} catch (Exception e) {
+			holder.dateAdded.setText("");
+		}
+
+		try {
 			holder.mBirthDate
 					.setText(DateUtils.convertTime(DateUtils.convertTime(patient.getPerson().getBirthdate())));
 		} catch (Exception e) {
@@ -85,7 +91,7 @@ class FindPatientRecyclerViewAdapter extends RecyclerView.Adapter<FindPatientRec
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(mContext, PatientDashboardActivity.class);
-				intent.putExtra(ApplicationConstants.BundleKeys.PATIENT_UUID_BUNDLE, patient.getUuid());
+				intent.putExtra(ApplicationConstants.BundleKeys.PATIENT_ID_BUNDLE, patient.getUuid());
 				mContext.startActivity(intent);
 				mContext.finish();
 			}
@@ -94,12 +100,13 @@ class FindPatientRecyclerViewAdapter extends RecyclerView.Adapter<FindPatientRec
 
 	@Override
 	public int getItemCount() {
-		return patients.size();
+		return patients == null ? 0 : patients.size();
 	}
 
 	class FetchedPatientHolder extends RecyclerView.ViewHolder {
 		private LinearLayout mRowLayout;
-		private TextView mIdentifier, mGender, mDisplayName, mBirthDate, genderLabel, birthDateLabel, patientSeperator;
+		private TextView mIdentifier, mGender, mDisplayName, mBirthDate, genderLabel, birthDateLabel, patientSeperator,
+				dateAddedLabel, dateAdded;
 
 		FetchedPatientHolder(View itemView) {
 			super(itemView);
@@ -111,6 +118,8 @@ class FindPatientRecyclerViewAdapter extends RecyclerView.Adapter<FindPatientRec
 			genderLabel = (TextView)itemView.findViewById(R.id.gender);
 			birthDateLabel = (TextView)itemView.findViewById(R.id.birthdate);
 			patientSeperator = (TextView)itemView.findViewById(R.id.patientSeperator);
+			dateAddedLabel = (TextView)itemView.findViewById(R.id.dateAddedLabel);
+			dateAdded = (TextView)itemView.findViewById(R.id.dateAddedDisplay);
 		}
 	}
 }

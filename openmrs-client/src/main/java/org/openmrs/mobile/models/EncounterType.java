@@ -14,10 +14,9 @@ import java.io.Serializable;
 
 public class EncounterType extends BaseOpenmrsMetadata implements Serializable {
 
-	public EncounterType() {
-	}
+    public EncounterType() {}
 
-	public EncounterType(String display) {
-		this.setDisplay(display);
-	}
+    public EncounterType(String display) {
+        this.setDisplay(display);
+    }
 }

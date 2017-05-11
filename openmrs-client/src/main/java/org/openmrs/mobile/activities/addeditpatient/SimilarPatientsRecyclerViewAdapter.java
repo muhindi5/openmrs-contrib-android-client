@@ -16,7 +16,6 @@ package org.openmrs.mobile.activities.addeditpatient;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
@@ -71,7 +70,7 @@ public class SimilarPatientsRecyclerViewAdapter
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(mContext, PatientDashboardActivity.class);
-				intent.putExtra(ApplicationConstants.BundleKeys.PATIENT_UUID_BUNDLE, getPatientUuid(patient));
+				intent.putExtra(ApplicationConstants.BundleKeys.PATIENT_ID_BUNDLE, getPatientUuid(patient));
 				mContext.startActivity(intent);
 				mContext.finish();
 			}
@@ -191,7 +190,6 @@ public class SimilarPatientsRecyclerViewAdapter
 	}
 
 	private void setStyleForMatchedPatientFields(TextView textView) {
-		textView.setTextColor(Color.DKGRAY);
 		textView.setTypeface(null, Typeface.BOLD);
 		textView.setPaintFlags(textView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 	}
