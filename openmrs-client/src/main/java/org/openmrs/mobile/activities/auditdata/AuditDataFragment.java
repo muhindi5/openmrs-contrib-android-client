@@ -15,6 +15,7 @@
 package org.openmrs.mobile.activities.auditdata;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
@@ -31,6 +32,7 @@ import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import org.joda.time.LocalDateTime;
 import org.openmrs.mobile.R;
@@ -134,6 +136,7 @@ public class AuditDataFragment extends ACBaseFragment<AuditDataContract.Presente
 	private String inpatientServiceTypeSelectedUuid, displayInpatientServiceType;
 	private Boolean displayExtraFormFields, displayCd4CountField, displayHbA1CField, displayHduCoManageField;
 	private TextInputLayout hba1cTextLayout, cd4TextInputLayout;
+	private TextView errorFirstGcsScore;
 
 	public static AuditDataFragment newInstance() {
 		return new AuditDataFragment();
@@ -257,7 +260,7 @@ public class AuditDataFragment extends ACBaseFragment<AuditDataContract.Presente
 		patient_diabetic_unknown = (RadioButton)fragmentView.findViewById(R.id.patient_diabetic_unknown);
 		cd4TextInputLayout = (TextInputLayout)fragmentView.findViewById(R.id.cd4TextInputLayout);
 		hba1cTextLayout = (TextInputLayout)fragmentView.findViewById(R.id.hba1cTextLayout);
-
+		errorFirstGcsScore = (TextView)fragmentView.findViewById(R.id.invalidGscError);
 		submitForm.setOnClickListener(v -> {
 			performDataSend();
 		});
@@ -1149,6 +1152,12 @@ public class AuditDataFragment extends ACBaseFragment<AuditDataContract.Presente
 				firstGcsScoreObservation = setObservationFields(firstGcsScoreObservation, CONCEPT_FIRST_GCS_SCORE_ICU,
 						firstGcsScore.getText().toString());
 				observations.add(firstGcsScoreObservation);
+			}
+			else{
+				errorFirstGcsScore.setVisibility(View.VISIBLE);
+				errorFirstGcsScore.setText(getString(R.string.error_gcs_score,
+						ApplicationConstants.ValidationFieldValues.AUDIT_GCS_SCORE_MIN,
+						ApplicationConstants.ValidationFieldValues.AUDIT_GCS_SCORE_MAX));
 			}
 		}
 

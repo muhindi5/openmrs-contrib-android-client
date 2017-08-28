@@ -900,6 +900,21 @@
 									android:hint="@string/first_gcs_score"
 									android:inputType="number" />
 						</android.support.design.widget.TextInputLayout>
+						<TextView
+							android:id="@+id/invalidGscError"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:paddingStart="5dp"
+							android:paddingLeft="5dp"
+							android:paddingRight="0dp"
+							android:paddingEnd="0dp"
+							android:padding="2dp"
+							android:text="@string/emptyerror"
+							android:textColor="@color/red"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:visibility="gone" />
 					</LinearLayout>
 					
 					<CheckBox
