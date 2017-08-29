@@ -13,59 +13,36 @@
   -->
 
 <resources>
-	<string name="action_settings">Settings</string>
 	<string name="action_logout">Logout</string>
-	
-	<string name="dbname">openmrs.db</string>
-	<string name="aadbname">aaopenmrs.db</string>
+
 	<!-- LoginActivity visitPhotoView -->
 	<string name="login_url_hint">URL address</string>
 	<string name="login_location_select">Session Location</string>
 	<string name="warning_dialog_title">Warning</string>
 	<string name="warning_lost_data_dialog">Changing the URL or username will erase all the data. Are you sure?</string>
-	<string name="forgot_dialog_title">Unable to login?</string>
-	<string name="forgot_dialog_message">Please contact the system administrator</string>
-	<string name="forgot_button_ok">Dismiss</string>
-	<string name="login_offline">Offline</string>
-	<string name="login_online">Online</string>
 	<string name="emptyerror">Required</string>
 	<string name="reg_firstname_hint">Given Name</string>
 	<string name="reg_midname_hint">Middle Name</string>
 	<string name="reg_surname_hint">Family Name</string>
 	<string name="reg_file_hint">File Number</string>
 	<string name="label_or">Or</string>
-	<string name="reg_ques_phno">Phone number</string>
-	<string name="reg_address">Address</string>
-	<string name="reg_nationality">Nationality</string>
-	<string name="reg_ward">Ward:</string>
-	<string name="reg_clinic">Clinic</string>
-	<string name="emergency_contact">Emergency Contact</string>
-	<string name="addr2_hint">Address 2</string>
-	<string name="atleastone">Fill at least one field</string>
 	<string name="male">Male</string>
 	<string name="female">Female</string>
 	<string name="dob_hint">Date of Birth</string>
 	<string name="estyr">Estimated Years</string>
 	<string name="estmonth">Estimated Months</string>
-	<string name="capture_photo">Capture photo</string>
-	
+
 	<!-- Offline Mode -->
-	<string name="offline_mode_unsupported_in_first_login">Offline mode is not supported during first login.Enable online mode and then try again.</string>
 	<!-- Connection Timeout dialog -->
 	<!-- Authentication Failed dialog -->
 	<string name="auth_failed_dialog_message">Incorrect username or password entered. Please try again.</string>
 	<!-- No internet dialog -->
 	<string name="no_internet_conn_dialog_message">You have no internet connection.\nPlease check phone or Wi-Fi connection and signal strength and try again.</string>
-	<string name="no_internet_exit">Exit</string>
-	<string name="no_internet_open_settings">Open Settings</string>
-	
+
 	<!-- SimilarPatients dialog -->
 	<string name="similar_patients_dialog_title">Similar patients found</string>
-	<string name="similar_patients_dialog_message">Choose existing patients or create a new one</string>
-	
+
 	<!-- Socket Exception dialog -->
-	<string name="socket_exception_dialog_title">Connection Failed</string>
-	<string name="socket_exception_dialog_message">A connection error has occurred .\nPlease try again in a few seconds.</string>
 	<!-- Invalid URL dialog -->
 	<string name="invalid_url_dialog_message">Cannot find server. Please check the URL and try again.</string>
 	<!-- Server unavailable dialog -->
@@ -78,8 +55,6 @@
 	<!-- Unauthorized dialog -->
 	<!-- Server not supported dialog -->
 	<!-- End Visit dialog -->
-	<string name="end_visit_dialog_title">End Visit</string>
-	<string name="end_visit_dialog_message">Are you sure you want to end this visit?</string>
 	<!-- Start visit dialog -->
 	<string name="start_visit_dialog_title">Start Visit</string>
 	<string name="start_visit_dialog_message">Are you sure you want to start visit for %1$s now?</string>
@@ -99,10 +74,6 @@
 	<!-- SettingsActivity activity -->
 	<!-- FindPatients activity -->
 	<!-- FindPatient Activity -->
-	<string name="dashboard_search_icon_label">Find Patients</string>
-	<string name="dashboard_registry_icon_label">Register Patient</string>
-	<string name="dashboard_visits_icon_label">Active Visits</string>
-	<string name="dashboard_forms_icon_label">Form Entry</string>
 	<!-- find_synced_patients_row layout-->
 	<!-- Patient FindPatient Activity -->
 	<string name="action_update_patient_data">Update Patient</string>
@@ -115,14 +86,10 @@
 	<string name="active_visit_label">Active Visit</string>
 	<!-- fragment_patient_vitals layout -->
 	<!-- fragment_patient_diagnosis layout -->
-	<string name="no_diagnoses_label">No diagnoses</string>
-	<string name="diagnosis_note_label">Text of encounter note</string>
-	
+
 	<!-- Visit dashboard activity -->
 	<string name="visit_note">Visit Note</string>
 	<string name="add_a_note">Add a note</string>
-	<string name="label_more">More</string>
-	<string name="label_patient_id">Patient ID</string>
 	<string name="start_visit_date">Start Visit Date</string>
 	<string name="end_visit_date">End Visit Date</string>
 	<!-- Capture Vitals activity -->
@@ -136,25 +103,14 @@
 	<string name="demographics">Demographics</string>
 	<string name="no_patient_selected">No patient selected</string>
 	<!--Matching Patient Activity-->
-	<string name="matching_patients_toolbar_tittle">Merge Patients</string>
-	<string name="patient_registered_locally">Patient registered locally</string>
-	<string name="similar_patients_on_server">Similar patients exist on server</string>
-	<string name="registration_core_info">To use faster and more accurate similar patient resolution, upgrade the Registration Core Module to 1.7 or higher</string>
-	
+
 	<!-- Image content description strings -->
 	<string name="toast_with_black_background">Toast with black background</string>
-	<string name="edit_form">Edit form</string>
-	<string name="patient_photo">Patient Photo</string>
-	<string name="visit_encounter_icon">Visit encounter Icon</string>
-	<string name="visit_status_icon">Status of visit</string>
-	<string name="show_or_hide_visit_details">Show/Hide visit details</string>
-	
-	
+
+
 	<!--Snackbar strings-->
-	<string name="snackbar_action_open">Open</string>
-	<string name="snackbar_info_patient_downloaded">Patient downloaded</string>
-	
-	
+
+
 	<!--permissions-->
 	<string name="permission_camera_rationale">Camera permission is needed to capture photo.</string>
 	<string name="permission_camera_denied">Camera permission was denied. Please consider granting it in order to access the camera</string>
@@ -167,7 +123,6 @@
 	<string name="username">Username</string>
 	<string name="password">Password</string>
 	<string name="login">Login</string>
-	<string name="create_account">No account yet? Create one</string>
 	<string name="search_hint">Search patients</string>
 	
 	<string name="nav_find_patient">Find Patient Record</string>
@@ -179,29 +134,14 @@
 	
 	<string name="title_patient_dashboard">Patient Dashboard</string>
 	<string name="title_audit_data_form">Audit Data Form</string>
-	<string name="title_settings">Settings</string>
-	
-	
+
+
 	<string name="label_close">Close</string>
 	<string name="label_open">Open</string>
 	<string name="label_age">Age:</string>
-	<string name="label_gender">Gender</string>
-	
-	<string name="label_diagnoses">Diagnoses</string>
-	<string name="label_vitals">Vitals</string>
-	<string name="label_appointments">Appointments</string>
-	<string name="label_recent_visits">Recent Visits</string>
-	<string name="label_bills">Bills</string>
-	<string name="label_allergies">Allergies</string>
-	<string name="label_active">Active</string>
-	
-	<string name="label_add_visit">Add Visit</string>
-	<string name="label_add_diagnosis">Add Diagnosis</string>
-	<string name="label_audit_data">Audit Data Form</string>
-	<string name="label_add_image">Add Image</string>
+
 	<string name="label_end_visit">End Visit</string>
-	<string name="label_add_task">Add Task</string>
-	
+
 	<string name="label_height">Height</string>
 	<string name="label_weight">Weight</string>
 	<string name="label_bmi">(Calculated)BMI</string>
@@ -211,78 +151,37 @@
 	<string name="label_blood_presure">Blood Pressure</string>
 	<string name="label_blood_oxygen_saturation">Blood Oxygen Saturation</string>
 	<string name="label_address">Address:</string>
-	<string name="label_address_2">Address 2</string>
-	<string name="label_city">City</string>
-	<string name="label_province">Province</string>
-	<string name="label_country">Country</string>
-	<string name="label_postal_code">Postal Code</string>
-	<string name="label_save">Save</string>
-	<string name="label_previous_visits">Previous Visits</string>
-	
-	<string name="label_tasks">Tasks</string>
-	<string name="label_complete">Complete</string>
-	
-	
-	<string name="some_title">Some Title</string>
-	<string name="some_summary">Some Summary</string>
-	
-	<string name="pref_user_profile">User Profile</string>
-	<string name="pref_send_report">Send crash reports</string>
-	<string name="pref_send_report_summary">Helps to fix bugs</string>
-	<string name="pref_sync_frequency">Sync frequency</string>
-	<string name="pref_sync_frequency_summary">Set the sync frequency</string>
-	<string name="pref_user_name">Set username</string>
-	<string name="pref_user_name_summary">Set your username</string>
-	<string name="pref_update_setting">Update Settings</string>
-	
-	<string name="snackbar_edit">EDIT</string>
+
+
 	<string name="invalid_login_or_password_message">Invalid login or password, please try again.</string>
 	<string name="logout_due_to_inactivity">You have been logged out due to inactivity.</string>
-	
-	
-	<string name="settings_application_info">Application Info</string>
-	<string name="settings_concepts_info">Concepts Info</string>
-	<string name="settings_concepts_in_db">Concepts in DB:</string>
-	<string name="action_starting_visit">"Starting Visit"</string>
-	
+
+
 	<!-- fragment_patient_details layout -->
 	<string name="patient_identifier"># %1$s</string>
-	<string name="patient_contact_info_label">Contact Information</string>
-	
+
 	<!--Matching Patient Activity-->
-	<string name="matching_patients_toolbar_title">Merge Patients</string>
-	
+
 	<!--Snackbar strings-->
-	<string name="snackbar_no_internet_connection">No internet connection</string>
-	
+
 	<!--permissions-->
-	<string name="patient_not_yet_registered">Patient not yet registered, cannot create encounter.</string>
-	
+
 	<!-- Layout strings -->
-	<string name="sync">Sync</string>
-	<string name="sync_on">Sync on</string>
-	<string name="sync_off">Sync off</string>
-	
-	
+
+
 	<!--Activity Logs-->
-	<string name="title_activity_logs">Logs</string>
-	
+
 	<!-- Add/edit visit -->
 	<string name="visit_type">Visit Type:</string>
 	<string name="enter_caption">Enter caption</string>
 	<string name="visit_photo">Visit Photo</string>
-	
-	<string name="findPatientsTitle">Search patients</string>
-	<string name="patientNotFound">Patient not found</string>
-	<string name="patientsFoundTitle">No. of Patients Found</string>
+
 	<!-- Fragment_patient_list -->
 	<string name="no_patients_found">No patients found</string>
 	<string name="select_patient_list">Select Patient List</string>
 	<string name="no_patient_list">No patient lists found!</string>
 	<string name="number_of_patients">%1$s patients found</string>
 	<string name="paging_label">%1$s of %2$s</string>
-	<string name="search_for_patients">Please type the first 3 characters of the patient name on the search bar for you to
-		visitPhotoView meaningful results</string>
 	<string name="patient_metadata_label">Patient Contact Information</string>
 	<string name="visit_tasks_dialog_message">add a visit task</string>
 	<string name="nav_patient_list">Patient List</string>
@@ -308,13 +207,10 @@
 	<string name="cd4">CD4:</string>
 	<string name="hba1c">HbA1c:</string>
 	<string name="unknown">Unknown</string>
-	<string name="nav_login">Login</string>
-	<string name="selectPatientList">Please select a patient list</string>
 	<string name="visit_scroll_tab_details_label">Information</string>
 	<string name="visi_scroll_tab_visit_tasks_label">Tasks</string>
 	<string name="visit_scroll_tab_visit_images_label">Imaging</string>
-	<string name="visit_scroll_tab_patient_details_label">Patient Details</string>
-	
+
 	<string name="no_visit_images">No Visit Images</string>
 	<string name="primary_diagnosis_label">Primary Diagnosis</string>
 	<string name="secondary_diagnosis_label">Secondary Diagnosis</string>
@@ -334,10 +230,8 @@
 	<string name="confirmed_diagnosis">Confirmed</string>
 	<string name="audit_data_form_label">Audit Data</string>
 	<string name="save_vitals">Save Vitals</string>
-	<string name="save_visit_note">Save Visit Note</string>
 	<string name="save_audit_data">Save Audit Data</string>
 	<string name="capture_vitals">Capture Vitals</string>
-	<string name="update_visit_note">Update Visit Note</string>
 	<string name="slash">/</string>
 	<string name="percent_sign">%</string>
 	<string name="label_blood_presure_systolic">Systolic</string>
@@ -349,7 +243,6 @@
 	<string name="error_text_vitals_maximum">Maximum: %1$d</string>
 	<string name="error_text_vitals_minimum">Minimum: %1$d</string>
 	<string name="in_complete">Incomplete</string>
-	<string name="update_visit">Update Visit</string>
 	<string name="update_audit_data">Update Audit Data</string>
 	<string name="predefined_tasks">Predefined Tasks</string>
 	<string name="no_predefined_tasks">No predefined tasks</string>
@@ -362,16 +255,12 @@
 	<string name="label_dismiss">Dismiss</string>
 	<string name="logged_in_in_offline_mode">LoggedIn in offline mode</string>
 	<string name="err_fetching_user_data">Couldn\'t fetch user data</string>
-	<string name="search_to_view">Please search to see patients</string>
 	<string name="visit_note_changes_pending_title">Pending Changes</string>
 	<string name="visit_note_changes_pending_message">You have unsaved changes on the visit note. Leaving this
 		screen while discard your changes</string>
 	<string name="no_clinical_note">No Patient Problem Summary</string>
-	<string name="civil_status">Civil Status</string>
-	<string name="kin_relationship">Kin Relationship</string>
 	<string name="change_server_url">Change Server URL</string>
 	<string name="no_patient_list_selected">No Patient List selected</string>
-	<string name="no_visits_recorded_for_this_patient">No visits recorded for this patient</string>
 	<string name="search_query_label">for search query: %1$s</string>
 	<string name="first_heart_rate">1st heart rate in ICU:</string>
 	<string name="first_gcs_score">1st GCS score at ICU admission (#):</string>

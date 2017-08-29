@@ -1232,17 +1232,11 @@ public class AuditDataFragment extends ACBaseFragment<AuditDataContract.Presente
 	}
 
 	private boolean hasValidGcsScore(){
-		//1. get the value from text field
-		//2. check values for validity
-		//3. if not valid, show error and set flag to false
-		Log.d("ANDR-172","Inside validator");
 		if(Float.parseFloat(firstGcsScore.getText().toString()) > 3 &&
 				Float.parseFloat(firstGcsScore.getText().toString()) < 15){
-		Log.d("ANDR-172","passed validation");
 			return true;
 		}
 		else{
-		Log.d("ANDR-172","failed validation");
 			errorFirstGcsScore.setVisibility(View.VISIBLE);
 			errorFirstGcsScore.setText(getString(R.string.error_gcs_score,
 					ApplicationConstants.ValidationFieldValues.AUDIT_GCS_SCORE_MIN,
