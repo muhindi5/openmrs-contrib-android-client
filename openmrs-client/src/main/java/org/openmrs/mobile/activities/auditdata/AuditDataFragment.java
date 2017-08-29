@@ -15,10 +15,10 @@
 package org.openmrs.mobile.activities.auditdata;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -262,7 +262,9 @@ public class AuditDataFragment extends ACBaseFragment<AuditDataContract.Presente
 		hba1cTextLayout = (TextInputLayout)fragmentView.findViewById(R.id.hba1cTextLayout);
 		errorFirstGcsScore = (TextView)fragmentView.findViewById(R.id.invalidGscError);
 		submitForm.setOnClickListener(v -> {
-			performDataSend();
+			if(hasValidGcsScore()){
+				performDataSend();
+			}
 		});
 
 		progressBar = (RelativeLayout)fragmentView.findViewById(R.id.auditDataRelativeView);
@@ -1153,12 +1155,7 @@ public class AuditDataFragment extends ACBaseFragment<AuditDataContract.Presente
 						firstGcsScore.getText().toString());
 				observations.add(firstGcsScoreObservation);
 			}
-			else{
-				errorFirstGcsScore.setVisibility(View.VISIBLE);
-				errorFirstGcsScore.setText(getString(R.string.error_gcs_score,
-						ApplicationConstants.ValidationFieldValues.AUDIT_GCS_SCORE_MIN,
-						ApplicationConstants.ValidationFieldValues.AUDIT_GCS_SCORE_MAX));
-			}
+
 		}
 
 		if (cd4.getText().length() > 0) {
@@ -1232,6 +1229,26 @@ public class AuditDataFragment extends ACBaseFragment<AuditDataContract.Presente
 			view.setVisibility(View.GONE);
 			view.animate().alpha(0.0f).setDuration(2000);
 		}
+	}
+
+	private boolean hasValidGcsScore(){
+		//1. get the value from text field
+		//2. check values for validity
+		//3. if not valid, show error and set flag to false
+		Log.d("ANDR-172","Inside validator");
+		if(Float.parseFloat(firstGcsScore.getText().toString()) > 3 &&
+				Float.parseFloat(firstGcsScore.getText().toString()) < 15){
+		Log.d("ANDR-172","passed validation");
+			return true;
+		}
+		else{
+		Log.d("ANDR-172","failed validation");
+			errorFirstGcsScore.setVisibility(View.VISIBLE);
+			errorFirstGcsScore.setText(getString(R.string.error_gcs_score,
+					ApplicationConstants.ValidationFieldValues.AUDIT_GCS_SCORE_MIN,
+					ApplicationConstants.ValidationFieldValues.AUDIT_GCS_SCORE_MAX));
+		}
+		return false;
 	}
 
 }
